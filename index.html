@@ -13,17 +13,4 @@
     const div = document.getElementById("boo");
     const renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
     renderer.resize(500, 200);
-    const context = renderer.getContext();
-    const stave = new VF.Stave(10, 40, 400);
-    stave.addClef("treble").setContext(context).draw();
-    const notes = [
-      new VF.StaveNote({ clef: "treble", keys: ["c/4"], duration: "q" }),
-      new VF.StaveNote({ clef: "treble", keys: ["e/4"], duration: "q" })
-    ];
-    const voice = new VF.Voice({ num_beats: 2, beat_value: 4 });
-    voice.addTickables(notes);
-    new VF.Formatter().joinVoices([voice]).format([voice], 400);
-    voice.draw(context, stave);
-  </script>
-</body>
-</html>
+    const 
