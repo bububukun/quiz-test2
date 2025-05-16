@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>音程クイズ</title>
+  <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.3/build/cjs/vexflow.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    #staff {
+      margin: 20px auto;
+      width: 400px;
+      height: 150px;
+    }
+    select, button {
+      font-size: 16px;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 音程クイズ 🎵</h1>
+  <div id="staff"></div>
+
+  <label for="interval">度数を選んでください：</label>
+  <select id="interval">
+    <option value="P1">完全1度</option>
+    <option value="m2">短2度</option>
+    <option value="M2">長2度</option>
+    <option value="m3">短3度</option>
+    <option value="M3">長3度</option>
+    <option value="P4">完全4度</option>
+    <option value="P5">完全5度</option>
+    <option value="m6">短6度</option>
+    <option value="M6">長6度</option>
+    <option value="m7">短7度</option>
+    <option value="M7">長7度</option>
+    <option value="P8">完全8度</option>
+  </select>
+  <br><br>
+  <button onclick="checkAnswer()">答える</button>
+  <button onclick="generateQuestion()">次の問題</button>
+  <p id="result"></p>
+
+  <script>
+    const VF = Vexflow.Flow;
+
+    const notes = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
+    const octaves = [4, 5];
+    let correctInterval = "";
+
+    function getRandomNote() {
+      const note = notes[Math.floor(Math.random() * notes.length)];
+      const octave =
