@@ -100,7 +100,7 @@
     });
 
     function updateDisplay() {
-      scoreDisplay.textContent = `クッキー：${Math.floor(cookies)}`;
+      scoreDisplay.textContent = `なら：${Math.floor(cookies)}`;
       for (let key in upgrades) {
         document.getElementById(`cost-${key}`).textContent = Math.floor(upgrades[key].cost);
       }
